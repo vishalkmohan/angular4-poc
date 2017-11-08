@@ -1,6 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+<div>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()" >
+User ID : <input type="text" placeholder="User Id" name = "userid" formControlName="userid"><br>
+Password :<input type=" password"  name="password" placeholder="Password" formControlName="password"><br>
+<button type="submit" name="button">Login</button>
+</form>
+
+
+
  </div>
