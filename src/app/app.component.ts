@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
+import { MyserviceService } from './myservice.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,8 @@ import { FormGroup,FormControl,Validators } from '@angular/forms';
 export class AppComponent {
   title = 'app';
 
+  myService:MyserviceService = new MyserviceService();
+
   loginForm;
   ngOnInit(){
   	this.loginForm= new FormGroup({
@@ -17,7 +20,7 @@ export class AppComponent {
   	});
   }
 login(){
-
+  console.log(this.myService.getData());
 	console.log(this.loginForm.value);
 }
 
