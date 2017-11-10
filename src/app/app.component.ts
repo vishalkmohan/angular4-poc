@@ -18,7 +18,7 @@ export class AppComponent {
   }
 login(){
 
-	console.log(this.loginForm);
+	console.log(this.loginForm.value);
 }
 
 }
