@@ -1,27 +1,23 @@
 import { Component } from '@angular/core';
-import { FormGroup,FormControl,Validators } from '@angular/forms';
-import { MyserviceService } from './myservice.service';
+import { PriceService } from './price.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'my-app',
+  template: `
+    <div>
+      <h2>Bitcoin Price</h2>
+      <p>1 BTC = {{ price }} {{ currency }}</p>
+    </div>
+  `,
 })
 export class AppComponent {
-  title = 'app';
 
-  myService:MyserviceService = new MyserviceService();
-
-  loginForm;
-  ngOnInit(){
-  	this.loginForm= new FormGroup({
-  		userid:new FormControl(),
-  		password:new FormControl()
-  	});
+  currency = 'USD';
+  price: number;
+  
+  constructor(priceService: PriceService) {
+    priceService.getPrice(this.currency)
+      .then(price => this.price = price);
   }
-login(){
-  console.log(this.myService.getData());
-	console.log(this.loginForm.value);
-}
 
 }
