@@ -16,8 +16,7 @@ export class AppComponent {
   price: number;
   
   constructor(priceService: PriceService) {
-    priceService.getPrice(this.currency)
-      .then(price => this.price = price);
+    this.price = priceService.getPrice(this.currency);
   }
 
 }

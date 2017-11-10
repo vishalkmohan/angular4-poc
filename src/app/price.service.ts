@@ -8,9 +8,11 @@ export class PriceService {
 
   constructor(private http: Http) { }
 
-  getPrice(currency: string): Promise<number> {
-    return this.http.get(this.currentPriceUrl).toPromise()
-      .then(response => response.json().bpi[currency].rate);
+  getPrice(currency: string) {
+    this.http.get(this.currentPriceUrl).subscribe(
+    	(data)=>console.log(data)
+    	);
+    return 1234;
   }
 
 }
